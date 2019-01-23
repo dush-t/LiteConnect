@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+{%load static%}
+
+
+{% block content %}
+
+<div class="edit-profile-form">
+    <h2>Edit profile details</h2>
+    <form method='POST', action='edit' enctype="multipart/form-data">
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type='submit' value="Submit">
+    </form>
+    
+</div>
+
+<h5><a href='change_pass'>Change Password</a></h5>
+
+{%endblock%}

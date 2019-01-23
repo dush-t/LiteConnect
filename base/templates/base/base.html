@@ -1,0 +1,55 @@
+{% load static %}
+
+<html>
+    <head>
+
+        <title>LiteConnect</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        
+
+    </head>
+
+
+<body>
+    {# Load the tag library #}
+    {% load bootstrap3 %}
+    
+    {# Load CSS and JavaScript #}
+   
+    
+    {# Display django.contrib.messages as Bootstrap alerts #}
+    {% bootstrap_messages %}
+
+
+     <!-- Side navigation -->
+    <div class="sidenav">
+        
+        {%if user.is_anonymous == False%}
+        <a href="/news_feed">News Feed</a>
+        <a href="/all_users">All Users</a>
+        <a href="/you">You</a>
+        <a href="{% url 'sign_out'%}">Log Out</a>
+        {%endif%}
+        </div>
+    </div>
+  
+  <!-- Page content -->
+  <div class="main">
+    <div class="page-header">
+        <h1><a href="/">LiteConnect</a></h1>
+        
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+  </div> 
+</html>

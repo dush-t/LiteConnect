@@ -1,0 +1,130 @@
+
+
+.page-header {
+    background-color: rgb(40, 209, 201);
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.content {
+    margin-left: 40px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Lobster', cursive;
+}
+
+.date {
+    color: #828282;
+}
+
+.save {
+    float: right;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.post {
+    margin-bottom: 70px;
+    margin-left: 15px;
+}
+
+.post h2 a, .post h2 a:visited {
+    color: #000000;
+}
+
+.sign_up_form{
+    margin-left: 700px;
+}
+
+
+ /* The sidebar menu */
+ .sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 140px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 0; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+  }
+
+  .sidnav-links{
+      margin-top:100px;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color:rgb(40, 209, 201);
+  }
+  
+  /* Style page content */
+  .main {
+    margin-left: 140px; /* Same as the width of the sidebar */
+    padding: 0px 0px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  } 
+
+  .nav-options{
+      align-content: right;
+  }
+
+  .your_post_list{
+      margin-top: 0px;
+      margin-left: 850px;
+      margin-right: 90px;
+  }
+
+  .content_container_you{
+      margin-left: 40px;
+      margin-right: 600px;
+      position: fixed;
+  }
+
+  img {
+    border-radius: 50%;
+  }
+
+  .propic{
+      width:  50px;
+      height: 50px;
+      border-radius: 50%;
+  }
+
+  .alert{
+      margin-left:135px;
+      margin-bottom:0px;
+      z-index: 2;
+      
+  }

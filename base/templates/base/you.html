@@ -1,0 +1,137 @@
+{% load static %}
+
+<html>
+    <head>
+
+        <title>LiteConnect</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+    </head>
+
+
+<body>
+
+        {# Load the tag library #}
+        {% load bootstrap3 %}
+        
+        {# Load CSS and JavaScript #}
+       
+        
+        {# Display django.contrib.messages as Bootstrap alerts #}
+        {% bootstrap_messages %}
+
+     <!-- Side navigation -->
+    <div class="sidenav">
+        <a href="/news_feed">News Feed</a>
+        <a href="/all_users">All Users</a>
+        <a href="/you">You</a>
+        <a href="{% url 'sign_out'%}">Log Out</a>
+    </div>
+  
+  <!-- Page content -->
+  <div class="main">
+    <div class="page-header">
+        <h1><a href="/news_feed">LiteConnect</a></h1>
+        
+    </div>
+    <div class="content_container_you">
+        <div class="row">
+            <div class="col-md-8">
+                    <div class="profile-pic">
+                    {%if current_user.profile_picture%}
+                    <img src = "{{current_user.profile_picture.url}}" width="70">
+                    {%endif%}
+                    <div class="name-info">
+                        <h1>{{current_user.name}}</h1>
+                        <h6>@{{current_user.username}}</h6>
+                    </div>
+                    </div>
+                    
+                    <p>{{current_user.bio}}</p><br>
+                    <h4>Followers: {{followercount}} / Following: {{followingcount}}</h4>
+                    <h4>Subscribers: {{subscribercount}}</h4>
+                    <h5><a href = 'edit'>Edit profile details</a></h5>
+                    <hr>
+                    <h3>Create a new post!</h3><br>
+                    
+                    <div class="Post_form">
+                        <form method='POST' action='you'>
+                            {%csrf_token%}
+                            <table>
+                            {{form.as_table}}
+                            </table>
+                            <br>
+                            <input type='submit' value='Submit'>
+                        </form>
+                    </div>
+                    <br><br><br>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class = "your_post_list">
+            <h3>Your posts - </h3><br>
+            {%for post in post_list%}
+                <div>
+                    
+                    <h4><a href="{%url 'view_post' key=post.pk%}">{{post.title}}</a></h4>
+                    <p>{{post.content}}</p>
+                    <h6>Posted at: {{post.publish_date}}</h6>
+                    <hr>
+                </div>
+            
+            {%endfor%}
+            
+            </div>
+</body>
+   
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

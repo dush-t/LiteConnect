@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+{%load static%}
+
+
+{% block content %}
+
+<div class="login_form">
+<h2>Login</h2>
+<form method="POST" action="/">
+
+{%csrf_token%}
+
+<table>
+    {{form.as_table}}
+</table>
+
+<input type="submit" value="Submit">
+</form>
+</div>
+
+<p>Not a member? <a href = '/sign_up'>Register</a></p>
+<p><strong>-- OR --</strong></p>
+  <a class="socialaccount_provider google" title="Google" href="/accounts/google/login/?process=login">Login with Google</a><br>
+
+{% endblock %}

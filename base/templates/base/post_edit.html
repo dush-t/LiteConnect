@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+{%load static%}
+
+
+{% block content %}
+
+<div class="edit-post-form">
+    <h2>Edit post details</h2>
+    <form method='POST', action='{{post.pk}}'>
+        {%csrf_token%}
+        {{form}}
+        <input type='submit' value="Submit">
+    </form>
+    
+</div>
+
+{%endblock%}

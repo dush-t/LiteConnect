@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{%load static%}
+
+
+{% block content %}
+{%if user_viewed.profile_picture%}
+<img src = "{{user_viewed.profile_picture.url}}" width="70" alt="propic">
+{%endif%}
+<h1>{{user_viewed.name}}</h1>
+<h6>@{{user_viewed.username}}</h6><br>
+<h4>Followers: {{followercount}} / Following: {{followingcount}}</h4>
+<h4>Subscribers: {{subscribercount}}</h4>
+{% if is_following == True %}
+<h5><a href = "{% url 'unfollow_user' username=user_viewed.username%}"> Unfollow </a></h5>
+{%else%}
+<h5><a href = "{% url 'follow_user' username=user_viewed.username%}"> Follow </a></h5>
+{%endif%}
+
+{%if subscribed == False%}
+<h5><a href = "{% url 'subscribe' username=user_viewed.username%}">Subscribe</a></h5>
+{%else%}
+<h5><a href = "{% url 'unsubscribe' username=user_viewed.username%}">Unsubscribe</a></h5>
+{%endif%}
+<br><br><hr>
+
+
+<div class = "user_post_list">
+<h3>{{user_viewed.name}}'s posts - </h3><br>
+{%for post in post_list%}
+    <div>
+        
+        <h4><a href="{%url 'view_post' key=post.pk%}">{{post.title}}</a></h4>
+        <p>{{post.content}}</p>
+        <p>Posted at: {{post.publish_date}}</p>
+        <hr>
+    </div>
+
+{%endfor%}
+
+</div>
+{% endblock %}

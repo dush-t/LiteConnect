@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+{%load static%}
+
+
+{% block content %}
+<h2>{{post.title}}</h2>
+<h5>{{post.content}}</h5>
+<h6>Posted on: {{post.publish_date}}</h6>
+
+{% if post.author == current_member %}
+<h5><a href="{% url 'edit_post' key=post.pk%}">Edit Post</a></h5>
+<h5><a href="{% url 'delete_post' key=post.pk%}">Delete Post</h5>
+{%endif%}
+
+<h5><a href="{% url 'get_post_history' key=post.pk%}">View edit history</a></h5>
+<br>
+<div class="Comment_form">
+    <form method='POST' action={{post_url}}>
+        {%csrf_token%}
+        
+        {{form}}
+        
+        <br>
+        <input type='submit' value='Submit'>
+    </form>
+</div>
+<br><br><br>
+
+<div class="Comment_list">
+    <h3>Comments -</h3><br>
+    {%for comment in comment_list%}
+    <h6><a href="{% url 'user_profile' username=user.username %}">@{{comment.author.username}}</a></h6>
+    <h5>{{comment.content}}</h5>
+    <h6>{{comment.publish_date}}</h6><hr>
+    {%endfor%}
+</div>
+
+{% endblock %}

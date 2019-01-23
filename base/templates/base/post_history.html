@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}
+{%load static%}
+
+
+{% block content %}
+
+{% for post in older_posts %}
+<h3>{{post.publish_date}}</h3>
+<h5>{{post.content}}</h5>
+{%endfor%}
+{%endblock%}
