@@ -109,10 +109,12 @@ WSGI_APPLICATION = 'LiteConnect.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS':{
-            'read_default_file': '/etc/mysql/my.cnf',
-        },
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME':'litedb',
+        'USER':'dush-t',
+        'PASSWORD': keyconfig.db_password,
+        'HOST':'localhost',
+        'PORT':'',
         
     }
 }
