@@ -109,10 +109,10 @@ WSGI_APPLICATION = 'LiteConnect.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME':'litedb',
-        'USER':'dush-t',
-        'PASSWORD': keyconfig.db_password,
+        'USER':'dusht',
+        'PASSWORD': keyconfig.db_password,  #KeyCOnfig file on server, obviously not shared here.
         'HOST':'localhost',
         'PORT':'',
         
